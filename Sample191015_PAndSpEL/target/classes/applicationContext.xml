@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookService" class="com.ofweek.BookServiceImpl" p:bookName="老人与海" p:price="58.00" p:author-ref="author" />
+
+    <bean id="author" class="com.ofweek.Author" p:authorName="海明威" p:country="美国" />
+
+    <bean id="userService" class="com.ofweek.UserServiceImpl">
+        <property name="userName" value="#{'wayne'}"></property>
+        <property name="age" value="#{18}"></property>
+        <property name="contactInfo" value="#{contactInfo}"></property>
+        <property name="address" value="#{contactInfo.address.toUpperCase()}" />
+        <property name="PI" value="#{T(Math).PI}" />
+    </bean>
+
+    <bean id="contactInfo" class="com.ofweek.ContactInfo">
+        <property name="address" value="#{'GuangDong'}"></property>
+        <property name="phoneNumber" value="#{'18607550755'}"></property>
+    </bean>
+
+</beans>

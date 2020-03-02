@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="com.ofweek.UserServiceImpl">
+        <constructor-arg name="userName" value="wayne" />
+        <constructor-arg name="age" value="18" />
+    </bean>
+
+    <bean id="userService2" class="com.ofweek.UserServiceImpl">
+        <constructor-arg ref="contacts" />
+    </bean>
+
+    <bean id="contacts" class="com.ofweek.Contacts">
+        <property name="address" value="深圳市科技园" />
+        <property name="mobilePhone" value="18607550755" />
+        <property name="postcode" value="518000" />
+    </bean>
+</beans>

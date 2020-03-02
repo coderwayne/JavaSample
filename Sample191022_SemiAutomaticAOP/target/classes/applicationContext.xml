@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 目标类 -->
+    <bean id="userService" class="com.ofweek.UserServiceImpl"></bean>
+
+    <!-- 切面类 -->
+    <bean id="myAspect" class="com.ofweek.MyAspect"></bean>
+
+    <!-- 创建代理类 -->
+    <bean id="userServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="userService" />
+        <property name="interfaces">
+            <value>com.ofweek.UserService</value>
+        </property>
+        <property name="interceptorNames" value="myAspect" /> <!--这里提供的是name而不是引用id-->
+        <property name="optimize" value="true" /> <!--当为true，则无论是否有接口，都采用cglib-->
+    </bean>
+
+</beans>

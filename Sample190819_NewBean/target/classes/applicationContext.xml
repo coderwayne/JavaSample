@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    <bean id="userServiceImplId" class="com.ofweek.UserServiceImpl">
+        <property name="userServiceDao" ref="userServiceDaoImplId"></property>
+    </bean>
+
+    <bean id="userServiceDaoImplId" class="com.ofweek.UserServiceDaoImpl"></bean>
+
+    <bean id="userServiceId" class="com.ofweek.MyBeanFactory" factory-method="createService">
+    </bean>
+    -->
+
+    <bean id="myBeanFactory2Id" class="com.ofweek.MyBeanFactory2"></bean>
+
+    <bean id="userServiceId" factory-bean="myBeanFactory2Id" factory-method="geteUserService"></bean>
+
+</beans>
