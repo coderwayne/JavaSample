@@ -1,0 +1,4 @@
+com/wayne/domain/BarCode.class
+com/wayne/utils/BarCodeUtil.class
+com/wayne/controller/BarCodeService.class
+com/wayne/dao/BarCodeDao.class
